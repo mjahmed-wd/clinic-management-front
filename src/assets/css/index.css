@@ -1,0 +1,8 @@
+/* module css */
+@import "./main.css";
+@import "./form.css";
+@import "./component.css";
+
+body{
+    zoom: 100%;
+}

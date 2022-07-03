@@ -1,0 +1,321 @@
+/*==================================
+font-family: "Roboto", sans-serif;
+==================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("./LandingHeader");
+/*-------------------------------------
+	variable
+--------------------------------------*/
+
+:root {
+  --primary-color: rgba(66, 133, 244, 1) !important;
+  --secondary-color: rgba(244, 179, 0, 1) !important;
+  --error-color: rgba(219, 69, 55, 1) !important;
+  --success-color: rgba(15, 157, 88, 1) !important;
+  --white-color: rgba(255, 255, 255, 1) !important;
+
+  --blue100: rgba(228, 242, 255, 1) !important;
+  --blue200: rgba(191, 222, 255, 1) !important;
+  --blue300: rgba(150, 202, 255, 1) !important;
+  --blue400: rgba(109, 181, 255, 1) !important;
+  --blue500: rgba(83, 164, 255, 1) !important;
+  --blue600: rgba(66, 149, 255, 1) !important;
+  --blue700: rgba(63, 116, 224, 1) !important;
+  --blue800: rgba(61, 98, 205, 1) !important;
+  --blue900: rgba(56, 66, 173, 1) !important;
+
+  --red100: rgba(253, 235, 238, 1) !important;
+  --red200: rgba(251, 206, 209, 1) !important;
+  --red300: rgba(233, 156, 154, 1) !important;
+  --red400: rgba(221, 119, 115, 1) !important;
+  --red500: rgba(230, 91, 81, 1) !important;
+  --red600: rgba(234, 78, 56, 1) !important;
+  --red700: rgba(201, 60, 49, 1) !important;
+  --red800: rgba(188, 53, 43, 1) !important;
+  --red900: rgba(172, 45, 32, 1) !important;
+
+  --yellow100: rgba(244, 114, 0, 1) !important;
+  --yellow200: rgba(244, 144, 0, 1) !important;
+  --yellow300: rgba(244, 160, 0, 1) !important;
+  --yellow400: rgba(244, 193, 11, 1) !important;
+  --yellow500: rgba(245, 202, 41, 1) !important;
+  --yellow600: rgba(246, 213, 80, 1) !important;
+  --yellow700: rgba(248, 224, 130, 1) !important;
+  --yellow800: rgba(251, 236, 179, 1) !important;
+  --yellow900: rgba(253, 248, 225, 1) !important;
+
+  --green100: rgba(229, 245, 235, 1) !important;
+  --green200: rgba(192, 229, 206, 1) !important;
+  --green300: rgba(152, 212, 175, 1) !important;
+  --green400: rgba(108, 197, 144, 1) !important;
+  --green500: rgba(72, 184, 121, 1) !important;
+  --green600: rgba(25, 172, 98, 1) !important;
+  --green700: rgba(1, 139, 76, 1) !important;
+  --green800: rgba(0, 122, 65, 1) !important;
+  --green900: rgba(0, 91, 45, 1) !important;
+
+  --black100: rgba(0, 0, 0, 0.04) !important;
+  --black200: rgba(0, 0, 0, 0.08) !important;
+  --black300: rgba(0, 0, 0, 0.12) !important;
+  --black500: rgba(0, 0, 0, 0.4) !important;
+  --black600: rgba(0, 0, 0, 0.6) !important;
+  --black700: rgba(0, 0, 0, 0.7) !important;
+  --black400: rgba(0, 0, 0, 0.2) !important;
+  --black800: rgba(0, 0, 0, 0.8) !important;
+  --black900: rgba(0, 0, 0, 0.87) !important;
+}
+
+/* Reset Css */
+*,
+body {
+  font-family: "Roboto", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue300) var(--white-color);
+  /* */
+}
+
+::-webkit-scrollbar {
+  width: 10px !important;
+}
+::-webkit-scrollbar-track {
+  background: var(--white-color) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue300) !important;
+  border-radius: 5px !important;
+  border: 2px solid var(--white-color) !important;
+}
+
+a {
+  color: var(--black700);
+}
+.body {
+  margin-top: 64px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  margin: 0px;
+}
+p {
+  padding: 0;
+  margin: 0;
+}
+.btn {
+  box-shadow: none !important;
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+label,
+.label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  margin-bottom: 4px;
+  display: block;
+  color: var(--black700);
+  padding: 4px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+button[disabled],
+input[disabled] {
+  cursor: not-allowed;
+}
+
+.circle {
+  position: static;
+  width: 4px;
+  height: 4px;
+  left: 316px;
+  top: 14px;
+  background: rgba(0, 0, 0, 0.87);
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+  margin: 0px 16px;
+  border-radius: 50%;
+}
+
+.input-field {
+  width: 100px !important;
+  padding-left: 5px !important;
+}
+
+/* Text Bold */
+.text-bold {
+  font-weight: 600;
+}
+
+/*============== Required =========== */
+.required {
+  color: #ff0000;
+}
+
+/*Remove Toastify__progress bar progress */
+.Toastify__progress-bar {
+  height: 0;
+  visibility: hidden;
+}
+.Toastify__close-button--light {
+  margin-top: 10px;
+}
+
+/* Dicriment td > Button : padding */
+td button {
+  padding: 0 !important;
+}
+th {
+  z-index: 2;
+}
+
+/* td > delete icon */
+.delete_btn_wrapper .order_delete_btn {
+  max-height: 20px !important;
+  max-width: 20px !important;
+}
+/* ---------- */
+::selection {
+  background: #ff8a00;
+  color: #fff;
+}
+::-moz-selection {
+  background: #ff8a00;
+}
+::selection {
+  background: #ff8a00;
+}
+.filepond--credits {
+  display: none;
+}
+
+/* Additional Css For New color */
+/* .top-navigation-wrapper {
+  background: #4971da !important;
+}
+.sidebar-toggle .navbar-toggler-bar {
+  background: #fff;
+}
+.logoText {
+  color: #fff !important;
+}
+.css-1dmwj7v-singleValue {
+  color: #fff !important;
+}
+.css-1404avm-control {
+  background: transparent;
+}
+.css-i4bv87-MuiSvgIcon-root {
+  color: rgb(92, 92, 92);
+}
+.css-12dtqsm-MuiSvgIcon-root {
+  color: #fff;
+}
+.css-1jcaqp0-MuiTableCell-root {
+  color: #4285f4 !important;
+} */
+/* .css-15wwp11-MuiTableHead-root tr th:nth-child(5) {
+  text-align: left !important;
+} */
+/* .css-1jcaqp0-MuiTableCell-root {
+  text-align: left !important;
+  font-weight: 500 !important;
+} */
+/* .css-1jcaqp0-MuiTableCell-root::before {
+  content: "৳ ";
+  margin-right: 5px;
+  color: #00000066;
+}  */
+
+.dashboard_Bold {
+  font-style: normal;
+  font-size: 24px !important;
+  line-height: 28px !important;
+}
+/* Pdf Action Button Css */
+.icon-button-wrapper {
+  margin-left: auto;
+}
+.pdf-action-icon {
+  /* margin: 10px; */
+  padding: 5px;
+  margin-left: 15px;
+  border-radius: 50%;
+  line-height: 10px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease-in-out all;
+}
+.pdf-action-icon  .MuiSvgIcon-root {
+  padding: 1px;
+}
+.icon-button-wrapper .pdf-action-icon:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+.icon-button-wrapper.right {
+  position: absolute;
+  right: 1%;
+  top: 10%;
+  transition: 0.3s ease-in-out all;
+}
+
+/* // landing common classes  */
+.section_header {
+  margin: 0 !important;
+}
+.section_table {
+  margin-top: 8px !important;
+}
+.section_container{
+  margin-top: 8px !important;
+}
+.section_wrapper{
+  padding: 12px 20px 0 20px !important;
+}
+/* React Pdf Style for view  */
+.react-pdf__Page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}

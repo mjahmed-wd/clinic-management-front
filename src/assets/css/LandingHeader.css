@@ -1,0 +1,73 @@
+.purchase_order_wrapper {
+    padding: 12px 12px 0 12px;
+  }
+  .purchase_order_wrapper .purchase_order_header {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .purchase_order_wrapper .header_right {
+    display: flex;
+    align-items: center;
+  }
+  .purchase_order_wrapper .purchase_order_header .header_name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.0015em;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+  }
+  .purchase_order_wrapper .purchase_order_master_filter {
+    width: 328px;
+  }
+  
+  /*  table header */
+  .purchase_order_table .MuiTable-root tbody td:first-child {
+    padding-left: 24px;
+  }
+  .purchase_order_tootip_items .items_wrapper {
+    max-height: 275px;
+    overflow: auto;
+  }
+  .purchase_order_tootip_items .heading_tooltip {
+    padding-bottom: 24px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.002em;
+    color: var(--black900);
+  }
+  .purchase_order_tootip_items .itemName {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: normal;
+    letter-spacing: 0.0015em;
+    color: var(--black900);
+    margin-bottom: 8px;
+  }
+  .purchase_order_tootip_items .itemName:last-child {
+    margin-bottom: 0px;
+  }
+  
+  .purchase_order_table .status_action .order_delete_btn {
+    width: 40px;
+    height: 40px;
+    left: 1032px;
+    top: 274px;
+    border: transparent;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 100px;
+    display: none;
+  }
+  .purchase_order_urgencyName-warning {
+    color: rgba(182, 34, 55, 1);
+  }
+  .purchase_order_urgencyName-secondary {
+      color: rgba(183, 129, 3, 1);
+  }
+  .purchase_order_urgencyName-success {
+    color: rgba(34, 154, 22, 1);
+  }

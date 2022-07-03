@@ -1,0 +1,100 @@
+.form-group {
+  margin-bottom: 0;
+  background: var(--white-color) !important;
+  position: relative;
+}
+.form-group input.errors {
+  background: var(--red100) !important;
+  border: 1px solid var(--red300) !important;
+}
+.form-group input.errors:hover {
+  border: 1px solid rgba(219, 69, 55, 1) !important;
+}
+
+.form-group input.errors:focus {
+  border: 1px solid rgba(219, 69, 55, 1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(219, 69, 55, 1) !important;
+}
+
+.form-group input.errors::placeholder {
+  color: var(--error-color) !important;
+}
+
+.master-filter {
+  border: 1px solid var(--black300);
+  border-radius: 4px;
+  margin-right: 11px;
+  display: flex;
+  height: 34px;
+}
+.master-filter:hover {
+  border: 1px solid var(--black600);
+}
+.master-filter .pointer {
+  cursor: pointer;
+}
+
+/* normal */
+.form-group input.form-control {
+  border: 1px solid var(--black300);
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  padding: 12px 11px;
+}
+
+.form-group input.form-control:hover {
+  border: 1px solid var(--black600);
+}
+.form-group input.form-control:focus {
+  border: 1px solid var(--primary-color);
+  box-shadow: 0px 0px 0px 1px var(--primary-color);
+}
+/* .form-group label {
+	font-size: 14px;
+	display: block;
+	color: var(--black700);
+	padding: 4px;
+	margin-bottom: 4px;
+	font-weight: 400;
+} */
+
+/*  disabled */
+.onFocusLabel.is-disabled {
+  color: var(--black400) !important;
+}
+
+.form-control:disabled,
+.form-control:disabled:hover {
+  color: var(--black700) !important;
+  background-color: var(--black200) !important;
+  border: 1px solid var(--black400) !important;
+}
+
+.form-trail-icon {
+  color: var(--black200) !important;
+  position: absolute;
+  bottom: 4px;
+  right: 11px;
+  z-index: 1;
+}
+/* / borderless input style */
+
+.form-borderless input.form-control {
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--black200) !important;
+}
+.form-borderless input.form-control:hover {
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--black200) !important;
+}
+.form-borderless input.form-control:focus {
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--primary-color) !important;
+  box-shadow: 0px var(--primary-color);
+}

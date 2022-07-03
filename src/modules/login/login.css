@@ -1,0 +1,79 @@
+/* ========= Login Stat ========== */
+
+.login-color {
+    /* background: linear-gradient(to bottom, #fff 30%, #e6f2ff 40% , #cce5ff 30%); */
+    height: 100vh;
+  
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(
+      top,
+      #ffffff 60%,
+      #e6f2ff 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      top,
+      #ffffff 60%,
+      #e6f2ff 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #ffffff 60%,
+      #e6f2ff 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6f2ff',GradientType=0 ); /* IE6-9 */
+  }
+  
+  .login-color .container {
+    position: relative;
+    width: 90%;
+    height: 50vh;
+    margin: auto;
+  }
+  
+  .login-color .login {
+    position: absolute;
+    top: 40%;
+  }
+  
+  .login-color .login_image {
+    margin-top: 40px;
+  }
+  
+  .login-color .login_image img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .login-color .btn {
+    margin-top: 20px;
+    padding: 10px;
+    width: 160px;
+  }
+  
+  .login-color .login input[type="text"],
+  .login-color .login input[type="password"] {
+    border: none;
+    border-radius: 0px;
+    box-shadow: 0 0 3px #666;
+  }
+  
+  .login-color .login .signup_option {
+    margin: 15px 0px;
+  }
+  
+  .login-color .login .signup_option span {
+    color: #29c252;
+  }
+  
+  @media only screen and (max-width: 995px) {
+    .login-color .container {
+      width: 90%;
+      margin: auto;
+    }
+    .login-color .login_image img {
+      display: none;
+    }
+  }
+  
+  /* ======== Login End ======== */
+  

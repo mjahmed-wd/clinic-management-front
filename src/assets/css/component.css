@@ -1,0 +1,345 @@
+/* button */
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  height: 30px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+}
+.btn-default-contained {
+  background: var(--black200);
+}
+.btn-default-contained:hover {
+  background: var(--black300);
+}
+.btn-primary-contained {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+.btn-primary-contained:hover {
+  background: #3f74e0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  color: var(--white-color);
+}
+
+.btn-secondary-contained {
+  background: var(--secondary-color);
+  border: none !important;
+  color: var(--white-color);
+}
+.btn-secondary-contained:hover {
+  background: rgba(244, 160, 0, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  color: var(--white-color);
+}
+
+.btn-disabled-contained {
+  background: var(--black100);
+  color: var(--black400);
+}
+
+.btn-disabled-contained:hover {
+  color: var(--black500);
+}
+
+.btn-primary-text {
+  color: var(--primary-color);
+}
+.btn-primary-text:hover {
+  color: rgba(63, 116, 224, 1);
+}
+
+.btn-secondary-text {
+  color: var(--secondary-color);
+}
+
+.btn-secondary-text:hover {
+  color: rgba(244, 160, 0, 1);
+}
+
+.btn-disabled-text {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-disabled-text:hover {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.btn-default-outlined {
+  color: rgba(0, 0, 0, 0.8);
+}
+.btn-default-outlined:hover {
+  color: rgba(0, 0, 0, 0.87);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary-outlined {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.btn-primary-outlined:hover {
+  color: rgba(63, 116, 224, 1);
+  background: rgba(228, 242, 255, 1);
+  border: 1px solid rgba(63, 116, 224, 1);
+}
+
+.btn-secondary-outlined {
+  color: var(--secondary-color);
+  border: 1px solid rgba(244, 179, 0, 1);
+}
+.btn-secondary-outlined:hover {
+  color: rgba(244, 160, 0, 1);
+  background: rgba(253, 248, 225, 1);
+  border: 1px solid rgba(244, 160, 0, 1);
+}
+
+.btn-disabled-outlined {
+  color: rgba(0, 0, 0, 0.2);
+}
+.btn-disabled-outlined:hover {
+  color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.btn-fav,
+.btn-fav:hover,
+.btn-fav:focus {
+  width: 40px;
+  color: var(--white-color);
+  height: 40px;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* chips */
+.chips {
+	/* display: flex !important;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center; */
+	padding: 4px;
+	/* height: 22px; */
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 500;
+	display: inline;
+	width: auto;
+	line-height: 14px;
+}
+
+.chip-primary {
+  background: rgba(228, 242, 255, 1);
+  color: var(--primary-color);
+}
+
+.chip-warning {
+  background: rgba(245, 217, 217, 1);
+  color: rgba(182, 34, 55, 1);
+}
+
+.chip-secondary {
+  background: rgba(255, 245, 215, 1);
+  color: rgba(183, 129, 3, 1);
+}
+
+.chip-success {
+  background: rgba(228, 248, 221, 1);
+  color: rgba(34, 154, 22, 1);
+}
+
+.chip-default {
+  background: rgba(238, 238, 238, 1);
+  color: rgba(105, 115, 125, 1);
+}
+.chip-purple {
+  background: rgba(235, 232, 255, 1);
+  color: rgba(123, 97, 255, 1);
+}
+
+/* Shadow Class */
+
+.shadow-1 {
+  background: #ffffff;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+}
+
+.shadow-2 {
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+}
+
+.shadow-3 {
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* // action icon and status */
+
+.status_action {
+  position: relative;
+}
+.actionIcon {
+  display: none !important;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.actionIcon .muiIconHover {
+  height: 40px;
+  width: 40px;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.actionIcon .accept_action {
+  margin-right: 8px;
+}
+/* // action icon and status */
+.accordion-wrapper {
+  position: relative;
+}
+.btn-see-more {
+  border: none;
+  position: absolute;
+  right: 20px;
+}
+/* // action button style   */
+.action_btn_wrapper{
+  display:flex;
+  align-items: center;
+}
+.status_action .action_btn{
+  width: 25px;
+  height: 25px;
+  /* left: 1032px;
+  top: 274px; */
+  border: transparent;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 100px;
+  display: none;
+}
+.action_btn.reject_action{
+  background: #dd1603;
+}
+.action_btn.approve_action{
+  background: #229A16;
+}
+.status_action .action_btn .MuiSvgIcon-root{
+  color: #fff;
+}
+
+
+/* Token Expired Popup */
+
+.token-expired {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+}
+.token-expired .expired-content {
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  height: 350px;
+  /* height: 50%; */
+  max-width: 350px;
+  background: #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  text-align: center;
+}
+.expired-content * {
+  color: #000000;
+}
+.expired-content h3 {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+}
+.expired-content .expired-form {
+  padding: 20px;
+  font-size: 14px;
+  /* background: #161B22; */
+  /* border: 1px solid #21262d; */
+  margin-top: 16px !important;
+}
+.expired-content .expired-form input {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  display: block;
+  width: 100%;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  /* background-color: #0d1117; */
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  outline: none;
+}
+.expired-content img {
+  height: 50px;
+  width: 50px;
+}
+
+/* Token Expired Popup */
+
+/* table body cell padding style */
+.MuiTableBody-root .MuiTableRow-root .MuiTableCell-root{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 6px 24px !important;
+}
+.MuiTable-root .MuiTableRow-root .MuiTableCell-root{
+  padding: 6px 24px !important
+}
+.MuiTableBody-root .MuiTableRow-root .MuiTableCell-root .MuiSvgIcon-root{
+  height: 18px !important;
+  width: 18px !important;
+  font-size: 20px !important;
+  padding: 1px !important;
+}
+.MuiBox-root{
+  padding: 0px !important
+}
+.MuiTabs-root{
+  min-height: 36px !important;
+}
+.MuiTabs-root .MuiButtonBase-root{
+  min-height: 36px !important;
+}
+.MuiBox-root {
+  margin-top: 4px !important
+}
+.MuiAvatar-root {
+  height: 35px !important;
+  width: 35px !important;
+}
