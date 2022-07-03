@@ -1,0 +1,207 @@
+/* Some Local Class */
+
+/* Sidebar */
+.sidebar {
+  padding-top: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--black700);
+  /* transition: 0.3s ease-in-out all; */
+}
+.sidebar .menu {
+  padding: 0 6px;
+  padding-top: 12px;
+  height: 100%;
+  overflow: auto;
+  background-color:#EBF6FF
+}
+/*  Toggle Sidebar */
+.sidebar.width-15 {
+  width: 240px;
+}
+.sidebar.width-0 {
+  left: -320px;
+}
+/* toggle sidebar with body */
+.body.width-85 {
+  margin-left: 240px;
+}
+
+.menu-branch {
+  padding: 0px 5px;
+}
+
+.menu a,
+.menu a:hover {
+  text-decoration: none;
+  width: 100%;
+}
+.menu ul {
+  padding-left: 0;
+}
+.menu ul li {
+  /* border-left: 4px solid transparent; */
+  cursor: pointer;
+  list-style: none;
+  border-radius: 4px;
+  transition: 0.3s ease-in-out all;
+}
+.menu .sidebar-icon {
+  min-width: 20px;
+}
+.menu ul .firstLevel-li {
+  border-radius: 4px;
+}
+.menu ul .firstLevel-li .icon {
+  margin-right: 0;
+}
+.menu ul .firstLevel-li .icon-rotate {
+  margin-right: 0;
+  transform: rotate(90deg);
+}
+
+.firstLabelMenuActive,
+.menu ul .firstLevel-li:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #3f74e0;
+  border-radius: 4px;
+}
+
+.menu ul li a,
+.menu ul li .sidebar-dropdown {
+  position: relative;
+  padding: 6px 0px;
+  padding-right: 16px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 4px;
+}
+.menu ul li .menuContent {
+  padding: 0 !important;
+  width: 100%;
+}
+.menu ul li .menuContent .sidebar-dropdown {
+  padding: 0 !important;
+}
+/* .menu ul li i {
+  margin-right: 8px;
+  font-size: 12px;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0deg);
+} */
+
+.menu ul li a:hover,
+.menu ul li a.active {
+  /* color: #3f74e0; */
+  color: rgba(63, 116, 224, 1);
+}
+
+/* menu-bullet */
+span.menu-bullet {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #b1b1b1;
+  border-radius: 100%;
+  margin-right: 24px;
+}
+
+/* 1st level dropdown */
+.menu ul li > ul.dropdown-content li a {
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: #EBF6FF;
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding: 8px 23px;
+}
+.menu ul li > ul.dropdown-content li:hover a {
+  color: #3f74e0;
+}
+.menu ul li > ul.dropdown-content li:hover span.menu-bullet {
+  background-color: #3f74e0;
+}
+.menu ul li a.sidebar-dropdown.active {
+  font-weight: 500;
+  color: #3f74e0;
+}
+
+.dropdown-content {
+  /* height: 0; */
+  max-height: 0;
+  /* visibility: hidden; */
+  overflow: hidden;
+  background-color: #fff;
+  transition: max-height 0.3s ease-out;
+}
+.menu .firstLabel-dropdown-show,
+.menu .secondLevel-dropdown-show {
+  display: block;
+  /* height: auto; */
+  max-height: 700px;
+  visibility: visible;
+  background-color: #fff;
+  /* border-radius: 4p-x; */
+  transition: max-height 0.3s ease-in;
+}
+/* Scroll Bar */
+/* width */
+.menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.menu::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  background: transparent;
+  /* margin: 5px 0; */
+}
+
+/* Handle */
+.menu::-webkit-scrollbar-thumb {
+  background: #b4bcc3;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+.menu::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* .menu .sidebar-second-dropdown {
+  padding: 5px 30px !important;
+  color: #9899ac !important;
+} */
+
+/* .dropdown-content.open {
+  display: block;
+  transition: all 0.3s;
+} */
+/* ul.dropdown-content li a {
+  color: #b1b1b1 !important;
+  font-size: 13px;
+  line-height: 1.62;
+  padding: 5px 30px !important;
+} */
+
+/* ul.dropdown-content li > ul.dropdown-content.dropdown-second-content li a {
+  padding: 5px 0 5px 50px !important;
+} */

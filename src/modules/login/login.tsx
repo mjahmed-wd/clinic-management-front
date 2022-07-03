@@ -108,9 +108,6 @@ const Text = styled.p`
 `;
 
 const NewLogin = () => {
-    // const dispatch = useDispatch();
-
-    document.title = "SME";
 
     const CommonSX = { height: "18px", margin: "16px", color: "rgba(0, 0, 0, 0.2)" }
 

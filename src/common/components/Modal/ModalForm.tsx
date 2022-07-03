@@ -13,7 +13,7 @@ interface IModalFormProps {
   setIsModalOpen: (isOpen: boolean) => void;
   children: any;
   title: string;
-  size?: string;
+  size?: any;
   saveFunc?: any;
   buttonName?: any;
   actionType?: any;
