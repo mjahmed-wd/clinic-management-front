@@ -24,7 +24,7 @@ const Input: FC<IInputProps> = ({ name, ...rest }) => {
                 value={values[name]}
                 type="text"
                 name={name}
-                placeholder={`Enter ${name}`}
+                placeholder={`Enter ${rest?.label || name}`}
                 {...rest}
             />
         </>
