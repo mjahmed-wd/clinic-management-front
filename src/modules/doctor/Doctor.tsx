@@ -1,5 +1,6 @@
+import axios from 'axios'
 import { Form, Formik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import DropDown from '../../common/components/InputField/DropDown'
 import Input from '../../common/components/InputField/Input'
 import { customStyles } from '../../common/utils/selectCustomStyles'
@@ -8,7 +9,23 @@ import { createDoctor } from './actions'
 type Props = {}
 
 const DoctorCreate = (props: Props) => {
-    const [notification, setNotification] = React.useState('')
+    const [notification, setNotification] = useState('');
+    const [imageURL, setImageURL] = useState('');
+    const handleImageUpload = (event: any) => {
+        const imageData = new FormData();
+        imageData.set("key", "8bc92ea2aef5c437abee8233cb8457b2");
+        imageData.append("image", event.target.files[0]);
+        axios
+            .post("https://api.imgbb.com/1/upload", imageData)
+            .then(function (response) {
+                setImageURL(response.data.data.display_url);
+                console.log("image uploaded to server");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
     return (
         <div>
             <Formik
@@ -51,6 +68,10 @@ const DoctorCreate = (props: Props) => {
                             name="name"
                             label="Name"
                             placeholder="Name"
+                            onChange={(e:any) => {
+                                setFieldValue('name', e.target.value);
+                            }
+                            }
                             type="text"
                         />
                         <br />
@@ -58,6 +79,9 @@ const DoctorCreate = (props: Props) => {
                             name="email"
                             label="Email"
                             placeholder="Email"
+                            onChange={(e: any) => {
+                                setFieldValue('email', e.target.value);
+                            }}
                             type="email"
                         />
                         <br />
@@ -65,6 +89,9 @@ const DoctorCreate = (props: Props) => {
                             name="password"
                             label="Password"
                             type="password"
+                            onChange={(e: any) => {
+                                setFieldValue('password', e.target.value);
+                            }}
                         />
                         <br />
                         <DropDown
@@ -86,10 +113,11 @@ const DoctorCreate = (props: Props) => {
                             isDisabled={false}
                         />
                         <br />
-                        <Input
-                            name="profilePic"
-                            label="Profile Pic"
-                            type="text"
+                        <input
+                            className="file-input"
+                            id="exampleRequired"
+                            type="file"
+                            onChange={handleImageUpload}
                         />
                         <br />
                         <DropDown
@@ -120,24 +148,36 @@ const DoctorCreate = (props: Props) => {
                             name="info"
                             label="Info"
                             type="text"
+                            onChange={(e: any) => {
+                                setFieldValue('info', e.target.value);
+                            }}
                         />
                         <br />
                         <Input
                             name="education"
                             label="Education"
                             type="text"
+                            onChange={(e: any) => {
+                                setFieldValue('education', e.target.value);
+                            }}
                         />
                         <br />
                         <Input
                             name="experience"
                             label="Experience"
                             type="text"
+                            onChange={(e: any) => {
+                                setFieldValue('experience', e.target.value);
+                            }}
                         />
                         <br />
                         <Input
                             name="address"
                             label="Address"
                             type="text"
+                            onChange={(e: any) => {
+                                setFieldValue('address', e.target.value);
+                            }}
                         />
                         <br />
                         <Input
@@ -153,7 +193,7 @@ const DoctorCreate = (props: Props) => {
                             options={[
                                 { value: 0, label: 'Satureday' },
                                 { value: 1, label: 'Sunday' },
-                                {value: 2, label: 'Monday'}
+                                { value: 2, label: 'Monday' }
                             ]}
                             value={values?.doctorOpeningDayOfWeek}
                             label="Opening Day"
@@ -172,6 +212,9 @@ const DoctorCreate = (props: Props) => {
                             name="doctorDailySlotCount"
                             label="Daily Slot"
                             type="Number"
+                            onChange={(e: any) => {
+                                setFieldValue('doctorDailySlotCount', e.target.value);
+                            }}
                         />
                         <button className="btn btn-primary" type="submit">Submit</button>
                     </Form>

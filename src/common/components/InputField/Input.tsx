@@ -17,12 +17,7 @@ const Input: FC<IInputProps> = ({ name, ...rest }) => {
     return (
         <>
             <input
-                onChange={(e: any) => {
-                    setFieldValue(name, e.target.value);
-                }
-                }
                 value={values[name]}
-                type="text"
                 name={name}
                 placeholder={`Enter ${rest?.label || name}`}
                 {...rest}
