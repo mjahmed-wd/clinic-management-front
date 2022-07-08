@@ -47,7 +47,9 @@ const DoctorCreate = (props: Props) => {
 
                 onSubmit={(values, { setSubmitting }) => {
                     createDoctor({
-                        ...values, role: {
+                        ...values,
+                        profilePic: imageURL
+                        , role: {
                             "value": "1",
                             "label": "Admin"
                         }, info: {
@@ -68,7 +70,7 @@ const DoctorCreate = (props: Props) => {
                             name="name"
                             label="Name"
                             placeholder="Name"
-                            onChange={(e:any) => {
+                            onChange={(e: any) => {
                                 setFieldValue('name', e.target.value);
                             }
                             }
