@@ -10,6 +10,7 @@ import './App.css'
 import NewLogin from './modules/login/login';
 import MainLayout from './common/components/MainLayout';
 import DoctorCreate from './modules/doctor/Doctor';
+import DoctorsList from './modules/doctor/DoctorsList';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +33,7 @@ function App() {
               {/* <Route exact path="/demo" element={<Demo />} /> */}
               <Route path="/" element={<NewLogin />} />
               <Route path="/doctor" element={<DoctorCreate />} />
+              <Route path="/doctorsList" element={<DoctorsList />} />
               {/* <Route path="/accessDenied" element={<AccessDeniedPage />} /> */}
               <Route path="*" element={<h1>Error</h1>} />
 

@@ -28,11 +28,13 @@ const DoctorCreate = (props: Props) => {
 
     return (
         <div>
+            
             <Formik
                 initialValues={{
                     name: '',
                     email: '',
                     password: '',
+                    phone: '',
                     role: '',
                     profilePic: '',
                     info: '',
@@ -85,6 +87,15 @@ const DoctorCreate = (props: Props) => {
                                 setFieldValue('email', e.target.value);
                             }}
                             type="email"
+                        />
+                        <br />
+                        <Input
+                            name="phone"
+                            label="Phone"
+                            placeholder="Phone"
+                            onChange={(e: any) => {
+                                setFieldValue('phone', e.target.value);
+                            }}
                         />
                         <br />
                         <Input
