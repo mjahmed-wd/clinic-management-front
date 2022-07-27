@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import DropDown from '../../common/components/InputField/DropDown'
 import Input from '../../common/components/InputField/Input'
 import { customStyles } from '../../common/utils/selectCustomStyles'
-import { createDoctor, getOneDoctor } from './actions'
+import { createDoctor, editDoctor, getOneDoctor } from './actions'
 
 type Props = {}
 
@@ -28,7 +28,7 @@ const DoctorCreate = (props: Props) => {
         experience: '',
         address: ''
     });
-    const {id} = useParams();
+    const { id } = useParams();
     const handleImageUpload = (event: any) => {
         const imageData = new FormData();
         imageData.set("key", "8bc92ea2aef5c437abee8233cb8457b2");
@@ -46,7 +46,7 @@ const DoctorCreate = (props: Props) => {
 
     useEffect(() => {
         if (id) {
-            getOneDoctor({_id: id}, setInitialData);
+            getOneDoctor({ _id: id }, setInitialData);
         }
     }, [])
 
@@ -56,23 +56,45 @@ const DoctorCreate = (props: Props) => {
                 enableReinitialize={true}
                 initialValues={initialData}
                 onSubmit={(values, { setSubmitting }) => {
-                    createDoctor({
-                        ...values,
-                        profilePic: imageURL
-                        , role: {
-                            "value": "1",
-                            "label": "Admin"
-                        }, info: {
-                            info: values?.info,
-                            doctorSpecialites: values?.speciality,
-                            doctorOpeningHour: values?.doctorOpeningHour,
-                            doctorDailySlotCount: values?.doctorDailySlotCount,
-                            doctorEducation: values?.education,
-                            doctorExperience: values?.experience,
-                            doctorAddress: values?.address,
-                            doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
-                        }
-                    }, setNotification);
+                    if (id) {
+                        editDoctor(id, {
+                            ...values,
+                            profilePic: imageURL
+                            , role: {
+                                "value": "1",
+                                "label": "Admin"
+                            }, info: {
+                                info: values?.info,
+                                doctorSpecialites: values?.speciality,
+                                doctorOpeningHour: values?.doctorOpeningHour,
+                                doctorDailySlotCount: values?.doctorDailySlotCount,
+                                doctorEducation: values?.education,
+                                doctorExperience: values?.experience,
+                                doctorAddress: values?.address,
+                                doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
+                            }
+                        }, () => {
+                            getOneDoctor({ _id: id }, setInitialData);
+                        });
+                    } else {
+                        createDoctor({
+                            ...values,
+                            profilePic: imageURL
+                            , role: {
+                                "value": "1",
+                                "label": "Admin"
+                            }, info: {
+                                info: values?.info,
+                                doctorSpecialites: values?.speciality,
+                                doctorOpeningHour: values?.doctorOpeningHour,
+                                doctorDailySlotCount: values?.doctorDailySlotCount,
+                                doctorEducation: values?.education,
+                                doctorExperience: values?.experience,
+                                doctorAddress: values?.address,
+                                doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
+                            }
+                        }, setNotification);
+                    }
                 }}
             >
                 {({ values, setFieldValue, errors, touched, isSubmitting }) => (
@@ -166,7 +188,7 @@ const DoctorCreate = (props: Props) => {
                             isDisabled={false}
                         />
                         <br />
-                        
+
                         <Input
                             name="education"
                             label="Education"

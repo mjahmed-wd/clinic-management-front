@@ -30,6 +30,15 @@ export const getOneDoctor = async (payload: any, setter: (state: Array<any>) => 
     }
 };
 
+export const editDoctor = async (id: string,payload: any, cb: () => void): Promise<void> => {
+    try {
+        const res: any = await axios.put(`http://localhost:5000/api/user/editUser?id=${id}`, payload);
+        cb?.();
+    } catch (error: any) {
+        alert(error?.response?.data?.message);
+    }
+};
+
 export const getAllDoctorsList = async (payload: any, setter: (state: Array<any>) => void): Promise<void> => {
     try {
         const res: any = await axios.get(`http://localhost:5000/api/findAllUser`, payload);
