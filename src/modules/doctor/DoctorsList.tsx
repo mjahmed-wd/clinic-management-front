@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { Button } from '@mui/material';
-import { getAllDoctorsList } from './actions';
+import { getAllDoctorsList, deleteDoctor } from './actions';
 
 interface Column {
     id: string;
@@ -42,7 +42,7 @@ interface IDoctorsInfo {
     role: string,
     info: {
         doctorAddress: string,
-        doctorSpecialites: Array<{value: string, label: string}>
+        doctorSpecialites: Array<{ value: string, label: string }>
     },
 }
 
@@ -84,7 +84,7 @@ const DoctorsList = () => {
         role: '',
         info: {
             doctorAddress: '',
-            doctorSpecialites: [{ value: '', label: ''}],
+            doctorSpecialites: [{ value: '', label: '' }],
         },
     }]);
 
@@ -143,7 +143,11 @@ const DoctorsList = () => {
                                     </TableCell>
                                     <TableCell>
                                         <Button variant='outlined'>Edit</Button>
-                                        <Button variant='contained'>Delete</Button>
+                                        <Button variant='contained' onClick={() => {
+                                            deleteDoctor({ email: item.email }, () => {
+                                                getAllDoctorsList([], setGridData);
+                                            });
+                                        }}>Delete</Button>
                                     </TableCell>
                                 </TableRow>
                             );
