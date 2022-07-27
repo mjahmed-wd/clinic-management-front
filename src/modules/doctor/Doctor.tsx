@@ -1,16 +1,34 @@
 import axios from 'axios'
 import { Form, Formik } from 'formik'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import DropDown from '../../common/components/InputField/DropDown'
 import Input from '../../common/components/InputField/Input'
 import { customStyles } from '../../common/utils/selectCustomStyles'
-import { createDoctor } from './actions'
+import { createDoctor, getOneDoctor } from './actions'
 
 type Props = {}
 
 const DoctorCreate = (props: Props) => {
     const [notification, setNotification] = useState('');
     const [imageURL, setImageURL] = useState('');
+    const [initialData, setInitialData] = useState<any>({
+        name: '',
+        email: '',
+        password: '',
+        phone: '',
+        role: '',
+        profilePic: '',
+        info: '',
+        speciality: '',
+        doctorOpeningHour: '',
+        doctorOpeningDayOfWeek: '',
+        doctorDailySlotCount: '',
+        education: '',
+        experience: '',
+        address: ''
+    });
+    const {id} = useParams();
     const handleImageUpload = (event: any) => {
         const imageData = new FormData();
         imageData.set("key", "8bc92ea2aef5c437abee8233cb8457b2");
@@ -26,27 +44,17 @@ const DoctorCreate = (props: Props) => {
             });
     };
 
+    useEffect(() => {
+        if (id) {
+            getOneDoctor({_id: id}, setInitialData);
+        }
+    }, [])
+
     return (
         <div>
-            
             <Formik
-                initialValues={{
-                    name: '',
-                    email: '',
-                    password: '',
-                    phone: '',
-                    role: '',
-                    profilePic: '',
-                    info: '',
-                    speciality: '',
-                    doctorOpeningHour: '',
-                    doctorOpeningDayOfWeek: '',
-                    doctorDailySlotCount: '',
-                    education: '',
-                    experience: '',
-                    address: ''
-                }}
-
+                enableReinitialize={true}
+                initialValues={initialData}
                 onSubmit={(values, { setSubmitting }) => {
                     createDoctor({
                         ...values,
@@ -61,7 +69,8 @@ const DoctorCreate = (props: Props) => {
                             doctorDailySlotCount: values?.doctorDailySlotCount,
                             doctorEducation: values?.education,
                             doctorExperience: values?.experience,
-                            doctorAddress: values?.address
+                            doctorAddress: values?.address,
+                            doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
                         }
                     }, setNotification);
                 }}
@@ -157,15 +166,7 @@ const DoctorCreate = (props: Props) => {
                             isDisabled={false}
                         />
                         <br />
-                        <Input
-                            name="info"
-                            label="Info"
-                            type="text"
-                            onChange={(e: any) => {
-                                setFieldValue('info', e.target.value);
-                            }}
-                        />
-                        <br />
+                        
                         <Input
                             name="education"
                             label="Education"

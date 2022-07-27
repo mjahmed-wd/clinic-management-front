@@ -33,6 +33,7 @@ function App() {
               {/* <Route exact path="/demo" element={<Demo />} /> */}
               <Route path="/" element={<NewLogin />} />
               <Route path="/doctor" element={<DoctorCreate />} />
+              <Route path="/editDoctor/:id" element={<DoctorCreate />} />
               <Route path="/doctorsList" element={<DoctorsList />} />
               {/* <Route path="/accessDenied" element={<AccessDeniedPage />} /> */}
               <Route path="*" element={<h1>Error</h1>} />
