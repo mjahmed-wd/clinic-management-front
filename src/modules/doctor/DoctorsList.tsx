@@ -7,9 +7,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Button } from '@mui/material';
+import { Button, ButtonProps } from '@mui/material';
 import { getAllDoctorsList, deleteDoctor } from './actions';
 import { Link } from 'react-router-dom';
+import Navbar from '../../common/Navbar';
+import Sidebar from '../../common/Sidebar';
+import { AddCircleRounded } from '@mui/icons-material';
+import styled from '@emotion/styled';
+import { Box } from '@mui/system';
 
 interface Column {
     id: string;
@@ -88,74 +93,121 @@ const DoctorsList = () => {
     }, [])
 
     return (
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-            <TableContainer sx={{ maxHeight: 440 }}>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                            {columns.map((column) => (
-                                <TableCell
-                                    key={column.id}
-                                    align={column.align}
-                                    style={{ minWidth: column.minWidth }}
-                                >
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {gridData.map((item) => {
-                            return (
-                                <TableRow hover role="checkbox" tabIndex={-1} key={item._id}>
-                                    <TableCell>
-                                        {item.name}
-                                    </TableCell>
-                                    <TableCell>
-                                        {item.email}
-                                    </TableCell>
-                                    <TableCell>
-                                        {item.phone}
-                                    </TableCell>
-                                    <TableCell>
-                                        {item?.info?.doctorAddress}
-                                    </TableCell>
-                                    <TableCell>
-                                        {item?.info?.doctorSpecialites?.length > 0 && item?.info?.doctorSpecialites?.map((speciality, i) => (
-                                            <p key={i}>
-                                                {speciality?.label}
-                                            </p>
-                                        ))}
-                                    </TableCell>
-                                    <TableCell>
-                                        <Button variant='outlined'>
-                                            <Link to={`/editDoctor/${item?._id}`}>
-                                                Edit
-                                            </Link>
-                                        </Button>
-                                        <Button variant='contained' onClick={() => {
-                                            deleteDoctor({ email: item.email }, () => {
-                                                getAllDoctorsList([], setGridData);
-                                            });
-                                        }}>Delete</Button>
-                                    </TableCell>
-                                </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
-                component="div"
-                count={gridData.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-        </Paper>
+        <>
+            <Navbar />
+            <Sidebar>
+                <>
+                    <Container>
+                        <H5>Patient Details</H5>
+                        <ColorButton variant="contained" onClick={() => { }}>
+                            <AddCircleRounded />
+                            <H5>New</H5>
+                        </ColorButton>
+                    </Container>
+                    <div style={{ padding: '0 30px' }}>
+                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                            <TableContainer sx={{ maxHeight: 440 }}>
+                                <Table stickyHeader aria-label="sticky table">
+                                    <TableHead>
+                                        <TableRow>
+                                            {columns.map((column) => (
+                                                <TableCell
+                                                    key={column.id}
+                                                    align={column.align}
+                                                    style={{ minWidth: column.minWidth }}
+                                                >
+                                                    {column.label}
+                                                </TableCell>
+                                            ))}
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {gridData.map((item) => {
+                                            return (
+                                                <TableRow hover role="checkbox" tabIndex={-1} key={item._id}>
+                                                    <TableCell>
+                                                        {item.name}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {item.email}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {item.phone}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {item?.info?.doctorAddress}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {item?.info?.doctorSpecialites?.length > 0 && item?.info?.doctorSpecialites?.map((speciality, i) => (
+                                                            <p key={i}>
+                                                                {speciality?.label}
+                                                            </p>
+                                                        ))}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Button variant='outlined'>
+                                                            <Link to={`/editDoctor/${item?._id}`}>
+                                                                Edit
+                                                            </Link>
+                                                        </Button>
+                                                        <Button variant='contained' onClick={() => {
+                                                            deleteDoctor({ email: item.email }, () => {
+                                                                getAllDoctorsList([], setGridData);
+                                                            });
+                                                        }}>Delete</Button>
+                                                    </TableCell>
+                                                </TableRow>
+                                            );
+                                        })}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                            <TablePagination
+                                rowsPerPageOptions={[10, 25, 100]}
+                                component="div"
+                                count={gridData.length}
+                                rowsPerPage={rowsPerPage}
+                                page={page}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                            />
+                        </Paper>
+                    </div>
+                </>
+            </Sidebar>
+        </>
     );
 }
+
+const Container = styled.div`
+padding: 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+`
+
+const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
+    '&:hover': {
+        backgroundColor: '#DA3923',
+        opacity: 0.8,
+    },
+    margin: '0 0 24px 0',
+    padding: '11px 28px',
+    gap: '10px',
+    width: '127px',
+    height: '46px',
+    background: '#DA3923',
+    borderRadius: '4px'
+}));
+
+const H5 = styled.h5`
+margin: 10px,
+font-family: Montserrat,
+font-style: normal,
+font-weight: 600,
+font-size: 16px,
+line-height: 20px,
+color: #FFFFFF,
+`
 
 export default DoctorsList;
