@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { Button, ButtonProps } from '@mui/material';
 import { getAllDoctorsList, deleteDoctor } from './actions';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../common/Navbar';
 import Sidebar from '../../common/Sidebar';
 import { AddCircleRounded } from '@mui/icons-material';
@@ -79,6 +79,8 @@ const DoctorsList = () => {
         _id: '',
     }]);
 
+    let navigate = useNavigate();
+
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
     };
@@ -99,7 +101,7 @@ const DoctorsList = () => {
                 <>
                     <Container>
                         <H5>Patient Details</H5>
-                        <ColorButton variant="contained" onClick={() => { }}>
+                        <ColorButton variant="contained" onClick={() => { navigate('/doctor') }}>
                             <AddCircleRounded />
                             <H5>New</H5>
                         </ColorButton>
@@ -145,16 +147,23 @@ const DoctorsList = () => {
                                                         ))}
                                                     </TableCell>
                                                     <TableCell>
-                                                        <Button variant='outlined'>
-                                                            <Link to={`/editDoctor/${item?._id}`}>
-                                                                Edit
-                                                            </Link>
-                                                        </Button>
-                                                        <Button variant='contained' onClick={() => {
-                                                            deleteDoctor({ email: item.email }, () => {
-                                                                getAllDoctorsList([], setGridData);
-                                                            });
-                                                        }}>Delete</Button>
+                                                        <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', gap: '10px' }}>
+                                                            <Button variant='outlined'>
+                                                                <Link to={`/editDoctor/${item?._id}`}>
+                                                                    Edit
+                                                                </Link>
+                                                            </Button>
+                                                            <Button variant='contained' onClick={() => {
+                                                                deleteDoctor({ email: item.email }, () => {
+                                                                    getAllDoctorsList([], setGridData);
+                                                                });
+                                                            }} sx={{borderRadius: '4px',
+                                                                backgroundColor: "#E1614F",
+                                                                '&:hover': {
+                                                                    backgroundColor: "#E1614F",
+                                                                }
+                                                                }}>Delete</Button>
+                                                        </Box>
                                                     </TableCell>
                                                 </TableRow>
                                             );

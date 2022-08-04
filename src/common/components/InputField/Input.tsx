@@ -18,8 +18,8 @@ const Input: FC<IInputProps> = ({ name, ...rest }) => {
     } = useFormikContext();
 
     return (
-        <div>
-            <h5 style={{padding: '5px 0'}}>{rest?.label || name} :</h5>
+        <>
+            {rest?.hideLabel ? <></> : <h5 style={{ padding: '5px 0' }}>{rest?.label || name} :</h5>}
             <Field
                 value={values[name]}
                 name={name}
@@ -27,7 +27,7 @@ const Input: FC<IInputProps> = ({ name, ...rest }) => {
                 {...rest}
             />
             <FormikError errors={errors} touched={touched} name={name} />
-        </div>
+        </>
     );
 };
 

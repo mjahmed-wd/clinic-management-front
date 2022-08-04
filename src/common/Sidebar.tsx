@@ -52,7 +52,9 @@ const Sidebar: React.FC<IProps> = ({ children }) => {
                         <Paper sx={{ padding: '30px 0', height: '100%' }}>
                             <>
                                 {NavMenus.map((item, index) => (
-                                    <NavItem key={index} elevation={0}>
+                                    <NavItem key={index} elevation={0} onClick={() => {
+                                        navigate('/doctorsList')
+                                    }}>
                                         <item.icon />
                                         <span>{item.label}</span>
                                     </NavItem>

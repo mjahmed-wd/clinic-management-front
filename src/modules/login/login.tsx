@@ -151,7 +151,7 @@ const NewLogin = () => {
                                         placeholder="Mobile Number"
                                         errors={errors}
                                         touched={touched}
-                                        label=""
+                                        hideLabel={true}
                                         style={{ width: "100%" }}
                                     />
                                 </InputHolder>
@@ -164,7 +164,7 @@ const NewLogin = () => {
                                         placeholder="Password"
                                         errors={errors}
                                         touched={touched}
-                                        label=""
+                                        hideLabel={true}
                                     />
                                     {isShowPassword ? <RemoveRedEyeOutlined onClick={() => {
                                         setIsShowPassword(false);
