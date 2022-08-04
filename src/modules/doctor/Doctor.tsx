@@ -2,7 +2,7 @@ import axios from 'axios'
 import * as yup from 'yup'
 import { Form, Formik } from 'formik'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import DropDown from '../../common/components/InputField/DropDown'
 import Input from '../../common/components/InputField/Input'
 import Navbar from '../../common/Navbar'
@@ -53,6 +53,7 @@ const DoctorCreate = (props: Props) => {
         address: ''
     });
     const { id } = useParams();
+    let navigate = useNavigate();
     const handleImageUpload = (event: any) => {
         const imageData = new FormData();
         imageData.set("key", "8bc92ea2aef5c437abee8233cb8457b2");
@@ -67,6 +68,51 @@ const DoctorCreate = (props: Props) => {
                 console.log(error);
             });
     };
+
+    const saveHandler=(values: { info: any; speciality: any; doctorOpeningHour: any; doctorDailySlotCount: any; education: any; experience: any; address: any; doctorOpeningDayOfWeek: any })=>{
+        if (id) {
+            editDoctor(id, {
+                ...values,
+                profilePic: imageURL
+                , role: {
+                    "value": "1",
+                    "label": "Admin"
+                }, info: {
+                    info: values?.info,
+                    doctorSpecialites: values?.speciality,
+                    doctorOpeningHour: values?.doctorOpeningHour,
+                    doctorDailySlotCount: values?.doctorDailySlotCount,
+                    doctorEducation: values?.education,
+                    doctorExperience: values?.experience,
+                    doctorAddress: values?.address,
+                    doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
+                }
+            }, () => {
+                navigate('/doctorsList')
+                getOneDoctor({ _id: id }, setInitialData);
+            });
+        } else {
+            createDoctor({
+                ...values,
+                profilePic: imageURL
+                , role: {
+                    "value": "1",
+                    "label": "Admin"
+                }, info: {
+                    info: values?.info,
+                    doctorSpecialites: values?.speciality,
+                    doctorOpeningHour: values?.doctorOpeningHour,
+                    doctorDailySlotCount: values?.doctorDailySlotCount,
+                    doctorEducation: values?.education,
+                    doctorExperience: values?.experience,
+                    doctorAddress: values?.address,
+                    doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
+                }
+            }, setNotification, () => {
+                navigate('/doctorsList')
+            });
+        }
+    }
 
     useEffect(() => {
         if (id) {
@@ -83,45 +129,7 @@ const DoctorCreate = (props: Props) => {
                     initialValues={initialData}
                     validationSchema={validationSchema}
                     onSubmit={(values, { setSubmitting }) => {
-                        if (id) {
-                            editDoctor(id, {
-                                ...values,
-                                profilePic: imageURL
-                                , role: {
-                                    "value": "1",
-                                    "label": "Admin"
-                                }, info: {
-                                    info: values?.info,
-                                    doctorSpecialites: values?.speciality,
-                                    doctorOpeningHour: values?.doctorOpeningHour,
-                                    doctorDailySlotCount: values?.doctorDailySlotCount,
-                                    doctorEducation: values?.education,
-                                    doctorExperience: values?.experience,
-                                    doctorAddress: values?.address,
-                                    doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
-                                }
-                            }, () => {
-                                getOneDoctor({ _id: id }, setInitialData);
-                            });
-                        } else {
-                            createDoctor({
-                                ...values,
-                                profilePic: imageURL
-                                , role: {
-                                    "value": "1",
-                                    "label": "Admin"
-                                }, info: {
-                                    info: values?.info,
-                                    doctorSpecialites: values?.speciality,
-                                    doctorOpeningHour: values?.doctorOpeningHour,
-                                    doctorDailySlotCount: values?.doctorDailySlotCount,
-                                    doctorEducation: values?.education,
-                                    doctorExperience: values?.experience,
-                                    doctorAddress: values?.address,
-                                    doctorOpeningDayOfWeek: values?.doctorOpeningDayOfWeek
-                                }
-                            }, setNotification);
-                        }
+                       saveHandler(values)
                     }}
                 >
                     {({ values, setFieldValue, errors, touched, isSubmitting }) => (

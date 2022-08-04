@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export const createDoctor = async (payload: any, setter: (state: string) => void): Promise<void> => {
+export const createDoctor = async (payload: any, setter: (state: string) => void, cb?: ()=>void): Promise<void> => {
     try {
         const res: any = await axios.post(`http://localhost:5000/api/user`, payload);
         alert(res?.data?.message)
+        cb?.();
     } catch (error: any) {
         alert(error?.response?.data?.message);
     }
